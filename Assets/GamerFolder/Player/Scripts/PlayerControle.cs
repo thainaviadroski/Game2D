@@ -30,6 +30,13 @@ public class PlayerControle : MonoBehaviour
     void Update()
     {
 
+
+        if (GetComponent<Character>().life == 0)
+        {
+            this.enabled = false;
+            //GetComponent<CapsuleCollider2D>.enabled = false;
+        }
+
         countCombo += Time.deltaTime;
 
         move();
@@ -72,13 +79,13 @@ public class PlayerControle : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             //skin.GetComponent<SpriteRenderer>().flipX = true;
-            transform.localScale = new Vector3(-5,5,0);
+            transform.localScale = new Vector3(-5, 5, 0);
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             //skin.GetComponent<SpriteRenderer>().flipX = false;
-            transform.localScale = new Vector3(5,5,0);
+            transform.localScale = new Vector3(5, 5, 0);
         }
 
         Vector3 moviment = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
